@@ -1,0 +1,74 @@
+create table Users (
+	id serial primary key, --serial
+	name varchar(50) not null, --not null - ні пустому імені
+	description varchar(250)
+);
+
+create table Items (
+	id serial primary key,
+	name varchar(50),
+	category_id integer not null,
+	constraint category_id_fk foreign key (category_id) references category(id) 
+);
+
+drop table items; --видалить таблицю Items 
+
+create table Groups (
+	id serial primary key,
+	name varchar(50) not null
+);
+
+alter table groups 
+	add column description varchar(250) -- add
+;
+
+alter table groups 
+	drop column description -- delete
+;
+
+create table group_to_user ( --many_to_many
+	user_id integer not null,
+	group_id integer not null,
+	
+	constraint user_id_fk foreign key (user_id) references users(id),
+	constraint group_id_fk foreign key (group_id) references groups(id)
+);
+
+
+create table user_extend (  --one_to_one
+	additinal_data text,	
+	user_id integer unique not null,-- (уникальна запись unique) 
+	constraint user_id_fk foreign key (user_id) references users(id) 
+);
+
+alter table user_extend  
+	alter column user_id set not null -- add not null
+;
+
+create table Orders ( --one_to_many
+	id serial primary key,
+	number integer not null,
+	descr varchar(250),
+	user_id integer not null,
+	constraint user_id foreign key (user_id) references users(id) 
+); 
+
+alter table orders 
+	alter column number set not null --add not null
+
+create table category ( --one_to_many
+	id serial primary key,
+	name varchar(50),
+	description varchar (50),
+	parent_id integer,
+	constraint parent_id_fk foreign key (parent_id) references category(id) --parent_id зовній ключ категорії category(id)
+);
+
+create table order_lines ( --many_to_many
+	id serial primary key,
+	order_id integer not null,
+	item_id integer not null,
+	item_count integer,
+	constraint order_id_fk foreign key (order_id) references orders(id),
+	constraint item_id_fk foreign key (item_id) references item(id)
+);

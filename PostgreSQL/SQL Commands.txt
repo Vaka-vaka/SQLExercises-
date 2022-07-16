@@ -1,0 +1,9 @@
+DDL - CREATE, DROP, ALTER, TRUNCATE - щодо таблиць
+
+DML - INSERT, UPDATE, DELETE, CALL, EXPLAIN CALL, LOCK - щодо інфор. в таблицях
+
+TCL - COMMIT, SAVEPOINT, ROLLBACK, SET Transaction, SET Constraint
+ 
+DQL - SELECT
+
+DCL - GRANT, REVOKE
