@@ -220,3 +220,57 @@ ORDER BY Длительность DESC, city DESC
 6
 ;
 ==================================================================
+Задание
+Вывести информацию о командировках сотрудника(ов), которые были самыми короткими по времени. В результат включить столбцы name, city, date_first, date_last.
+
+Пояснение
+Результат
+Связанные шаги
+Структура и наполнение таблицы trip
+Enter an SQL query
+Correct answer from 33,772 learners
+Total 68% of tries are correct
+ You're right!
+Query result:
++--------------+-----------------+------------+------------+
+| name         | city            | date_first | date_last  |
++--------------+-----------------+------------+------------+
+| Семенов И.В. | Санкт-Петербург | 2020-06-01 | 2020-06-03 |
++--------------+-----------------+------------+------------+
+Affected rows: 1
+
+1
+/*SELECT name, city, date_first, date_last, 
+2
+       DATEDIFF(date_last, date_first) + 1 AS 'Длительность'
+3
+FROM trip
+4
+ORDER BY Длительность
+5
+LIMIT 1
+6
+;*/
+7
+​
+8
+SELECT name, city, date_first, date_last       
+9
+FROM trip
+10
+WHERE DATEDIFF(date_last, date_first) =
+11
+(SELECT MIN(DATEDIFF(date_last, date_first)) FROM trip)
+12
+;
+13
+​
+14
+/*SELECT name, city, date_first, date_last       
+15
+FROM trip
+16
+ORDER BY DATEDIFF(date_last, date_first)
+17
+LIMIT 1;*/
+================================================================
