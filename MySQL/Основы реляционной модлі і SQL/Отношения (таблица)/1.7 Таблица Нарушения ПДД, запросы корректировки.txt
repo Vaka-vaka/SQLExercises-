@@ -1,0 +1,45 @@
+Задание
+Создать таблицу fine следующей структуры:
+
+Поле	Описание
+fine_id	ключевой столбец целого типа с автоматическим увеличением значения ключа на 1
+name	строка длиной 30
+number_plate	строка длиной 6
+violation	строка длиной 50
+sum_fine	вещественное число, максимальная длина 8, количество знаков после запятой 2
+date_violation	дата
+date_payment	дата
+Результат
+Связанные шаги
+Enter an SQL query
+Correct answer from 31,776 learners
+Total 69% of tries are correct
+ Well done!
+Affected rows: 0
+
+Affected rows: 0
+
+1
+CREATE TABLE fine (
+2
+    fine_id INT PRIMARY KEY AUTO_INCREMENT,
+3
+    name VARCHAR(30),
+4
+    number_plate VARCHAR(6),
+5
+    violation VARCHAR(50),
+6
+    sum_fine DECIMAL(8,2),
+7
+    date_violation DATE,
+8
+    date_payment DATE
+9
+);
+10
+​
+11
+SELECT * FROM fine;
+12
+​=================================================================
