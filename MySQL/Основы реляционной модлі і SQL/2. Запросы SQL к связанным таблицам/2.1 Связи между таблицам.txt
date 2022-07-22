@@ -152,7 +152,34 @@ Total 22% of tries are correct
 You've solved a complex problem, congratulations! Now you can help other learners in comments by answering their questions, or compare your solution with others on solution forum.
 
 ==================================================
+Задание
+Создать таблицу author следующей структуры:
 
+Поле	Тип, описание
+author_id	INT PRIMARY KEY AUTO_INCREMENT
+name_author	VARCHAR(50)
+Enter an SQL query
+Correct answer from 30,862 learners
+Total 81% of tries are correct
+ Totally right.
+Affected rows: 0
+
+Affected rows: 0
+
+1
+CREATE TABLE author(
+2
+    author_id INT PRIMARY KEY AUTO_INCREMENT,
+3
+    name_author VARCHAR(50)
+4
+);
+5
+​
+6
+SELECT * FROM author;
+7
+​==============================================================
 
 
 
